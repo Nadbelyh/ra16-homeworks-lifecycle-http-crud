@@ -1,0 +1,22 @@
+.addSvgButton {
+    position: absolute;
+    border: none;
+    background-color: transparent;
+    padding: 0px;
+    bottom: 0;
+    right: 0;
+    height: 25px;
+    width: 25px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.addNote {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    height: 20%;
+}
