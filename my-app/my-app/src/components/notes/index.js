@@ -13,7 +13,7 @@ function Notes() {
   const loadData = () => {
     setLoading(true);
     setError({ status: false, text: "" });
-    fetch("http://localhost:7777/notes")
+    fetch("http://localhost:7070/notes")
       .then((response) => response.json())
       .then((data) => {
         setNotes(data);
@@ -33,9 +33,12 @@ function Notes() {
   const handleAddNote = (evt) => {
     evt.preventDefault();
 
-    fetch("http://localhost:7777/notes", {
+    fetch("http://localhost:7070/notes", {
       method: "POST",
-      body: text,
+      body: JSON.stringify({
+        id: 0,
+        content: text,
+      }),
     })
       .then(() => {
         setText("");
@@ -59,7 +62,7 @@ function Notes() {
   };
 
   const handleRemove = (id) => {
-    fetch(`http://localhost:7777/notes/${id}`, { method: "DELETE" }).then(() =>
+    fetch(`http://localhost:7070/notes/${id}`, { method: "DELETE" }).then(() =>
       loadData()
     );
   };
